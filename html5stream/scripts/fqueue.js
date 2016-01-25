@@ -1,8 +1,7 @@
 
 (function(scope){
 	function fQueue(capacity) {
-		if (capacity === undefined)
-			capacity = 8192;
+		capacity = capacity || 8192;
 
 		var array = new Array(capacity);
 		var size = 0;

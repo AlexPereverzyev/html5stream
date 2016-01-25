@@ -5,9 +5,9 @@ import tornado.ioloop
 import tornado.web
 import app_config
 
+from tornado.log import app_log
 from tornado.options import options
 from app_settings import settings
-from logging_mixin import get_app_logger
 from handlers.home_handler import HomeHandler
 from handlers.capture_handler import CaptureHandler
 from handlers.capture_stream_handler import CaptureStreamHandler
@@ -26,15 +26,14 @@ application = tornado.web.Application([
 
 if __name__ == "__main__":
     def stop_server(signum, frame):
-        log.info('Stopping server')
+        app_log.info('Stopping server')
         loop.stop()
 
     signal.signal(signal.SIGINT, stop_server)
 
-    log = get_app_logger()
-    log.setLevel(options.loglevel)
-    log.info('Starting Tornado {0} server'.format(tornado.version))
-    log.info('Press Ctrl+C to stop')
+    app_log.setLevel(options.loglevel)
+    app_log.info('Starting Tornado {0} server'.format(tornado.version))
+    app_log.info('Press Ctrl+C to stop')
 
     application.listen(options.port)
     loop = tornado.ioloop.IOLoop.current()

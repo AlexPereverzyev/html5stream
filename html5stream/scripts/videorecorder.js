@@ -35,7 +35,7 @@
 
         this.getFrameRate = function() {
             return frameRate;
-        }
+        };
 	}
 
 	scope.VideoRecorder = VideoRecorder;

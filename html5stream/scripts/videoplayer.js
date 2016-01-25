@@ -26,7 +26,7 @@
 
         this.getFrameRate = function() {
             return frameRate;
-        }
+        };
     }
 
     scope.VideoPlayer = VideoPlayer;

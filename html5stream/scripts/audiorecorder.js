@@ -7,7 +7,7 @@
         var samples = new fQueue(sampleRate*bufferLength);
         var audioSource = audioCtx.createMediaStreamSource(media);
         var audioProcessor = audioCtx.createScriptProcessor(recordingBufSize, 1, 1);
-        
+
         audioProcessor.onaudioprocess = function(e) {
             var input = e.inputBuffer.getChannelData(0);
             for (var i = 0; i < recordingBufSize; i++)
@@ -36,7 +36,7 @@
 
         this.getSampleRate = function() {
             return sampleRate;
-        }
+        };
     }
 
     scope.AudioRecorder = AudioRecorder;

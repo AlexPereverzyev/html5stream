@@ -23,11 +23,8 @@ class StreamClient(object):
         self.queue.task_done()
         return item
 
-    def store_size(self):
-        return self.queu.qsize()
-
     def empty(self):
-        return self.queu.qsize() > 0
+        return self.queue.qsize() == 0
 
 
 def generate_id():

@@ -9,7 +9,7 @@
         var playBuffer = audioCtx.createBuffer(1, playBufSize, sampleRate);
         var playBufferData = playBuffer.getChannelData(0);
         var playSource = null;
-    
+
         function playAudioSamples() {
             for (var i = 0; i < playBufSize; i++) {          
                 var sample = samples.dequeue();
@@ -44,7 +44,7 @@
 
         this.getSampleRate = function() {
             return sampleRate;
-        }
+        };
     }
 
     scope.AudioPlayer = AudioPlayer;
